@@ -1,0 +1,196 @@
+:root {
+  --accent: #8c1d2c;
+  --accent-dark: #6e1722;
+  --accent-tint: #f8eef0;
+  --text: #1f1f1f;
+  --muted: #5c5c5c;
+  --line: #e4dfe0;
+  --bg: #ffffff;
+  --bg-soft: #faf8f8;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+a { color: var(--accent); text-underline-offset: 2px; }
+a:hover { color: var(--accent-dark); }
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Top navigation */
+.site-nav {
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.site-nav ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 760px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 4px;
+}
+.site-nav a {
+  display: block;
+  padding: 14px 10px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-bottom: 3px solid transparent;
+}
+.site-nav a:hover { color: var(--accent); }
+.site-nav a[aria-current="page"] {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Content */
+main { padding: 36px 0 56px; }
+
+h1 {
+  font-size: 2rem;
+  line-height: 1.25;
+  margin: 0 0 16px;
+  color: var(--accent);
+}
+h2 {
+  font-size: 1.4rem;
+  line-height: 1.3;
+  margin: 2.4rem 0 0.6rem;
+}
+p { margin: 0 0 1.1rem; }
+ul, ol { margin: 0 0 1.2rem; padding-left: 1.4rem; }
+li { margin-bottom: 0.45rem; }
+
+.byline { color: var(--muted); font-size: 1rem; margin-bottom: 1.4rem; }
+
+/* Buttons */
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 1.6rem 0 0.4rem;
+}
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.3;
+  border-radius: 8px;
+  text-align: center;
+}
+.btn:hover { background: var(--accent-dark); color: #fff; }
+.btn:focus-visible, .site-nav a:focus-visible, a:focus-visible {
+  outline: 3px solid #d98a95;
+  outline-offset: 2px;
+}
+.video-line { margin-bottom: 1.4rem; }
+.video-line .btn { margin-top: 10px; }
+
+/* Home: about section */
+.about {
+  margin-top: 2.6rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--line);
+}
+
+/* Tables scroll sideways on small screens */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 0 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.table-scroll table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 560px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.table-scroll th, .table-scroll td {
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+.table-scroll th {
+  background: var(--accent-tint);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.table-scroll tr:last-child td { border-bottom: 0; }
+.table-wide table { min-width: 760px; }
+
+/* Checklist */
+.checklist { list-style: none; padding-left: 0; }
+.checklist li {
+  padding-left: 1.8rem;
+  text-indent: -1.8rem;
+}
+.checklist li::before {
+  content: "☐";
+  display: inline-block;
+  width: 1.8rem;
+  text-indent: 0;
+  color: var(--accent);
+}
+
+/* Form embed */
+.form-embed { margin: 1.4rem 0 1rem; }
+.form-embed iframe {
+  display: block;
+  width: 100%;
+  height: 687px;
+  min-height: 687px;
+  border: 0;
+}
+.form-fallback { margin: 0 0 1.4rem; }
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: var(--bg-soft);
+  padding: 26px 0 34px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.site-footer p { margin: 0 0 0.5rem; }
+.site-footer a { color: var(--accent); }
+
+@media (max-width: 520px) {
+  body { font-size: 1rem; }
+  h1 { font-size: 1.65rem; }
+  h2 { font-size: 1.25rem; }
+  main { padding-top: 26px; }
+  .site-nav ul { padding: 0 8px; }
+  .site-nav a { padding: 12px 6px; font-size: 0.8rem; }
+  .buttons { flex-direction: column; }
+  .btn { width: 100%; }
+  .form-embed iframe { height: 760px; min-height: 760px; }
+}
